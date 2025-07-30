@@ -11,7 +11,8 @@ WORKDIR /app
 COPY embedding-server/requirements.txt requirements.txt
 
 # Use pip without cache to reduce image size
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt sentence-transformers
+RUN pip freeze
 
 COPY embedding-server .
 

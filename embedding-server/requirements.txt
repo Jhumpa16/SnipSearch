@@ -1,9 +1,11 @@
 fastapi>=0.100.0
 uvicorn[standard]>=0.22.0
+sentence-transformers>=2.2.2
 transformers
 scipy
 scikit-learn
-https://download.pytorch.org/whl/cpu/torch-2.0.1%2Bcpu-cp310-cp310-linux_x86_64.whl
+
+
 
 
 

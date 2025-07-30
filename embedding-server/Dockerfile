@@ -1,25 +1,21 @@
 FROM python:3.10-slim
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+# Reduce image size by installing only essentials
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    git \
-    curl \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+COPY embedding-server/requirements.txt requirements.txt
 
-COPY embedding-server/requirements.txt .
+# Use pip without cache to reduce image size
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-COPY embedding-server/ .
-
-EXPOSE 8000
+COPY embedding-server .
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
 
 

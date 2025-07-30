@@ -1,6 +1,5 @@
 FROM python:3.10-slim
 
-# Reduce image size by installing only essentials
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && apt-get clean \
@@ -10,9 +9,11 @@ WORKDIR /app
 
 COPY embedding-server/requirements.txt requirements.txt
 
-# Use pip without cache to reduce image size
-RUN pip install --no-cache-dir -r requirements.txt sentence-transformers
-RUN pip freeze
+# Install CPU-only PyTorch to avoid bloat
+RUN pip install --no-cache-dir torch==2.1.2+cpu torchvision==0.16.2+cpu torchaudio==2.1.2+cpu -f https://download.pytorch.org/whl/torch_stable.html
+
+# Then install the rest
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY embedding-server .
 

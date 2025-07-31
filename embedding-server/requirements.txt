@@ -4,6 +4,8 @@ sentence-transformers>=2.2.2
 transformers
 scipy
 scikit-learn
+numpy<2
+
 
 
 

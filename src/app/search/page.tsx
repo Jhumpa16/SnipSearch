@@ -20,6 +20,9 @@ interface Clip {
   similarity?: number;
 }
 
+// Trending/Hot searches - hardcoded for now
+const TRENDING_SEARCHES = ['villain speech', 'anime betrayal', 'epic fight', 'sad goodbye'];
+
 // Helper to infer filters from prompt
 function inferFiltersFromPrompt(prompt: string): {
   mood: string | null,
@@ -91,8 +94,8 @@ const SearchPage = () => {
     if (!q.trim()) return;
 
     let count = parseInt(localStorage.getItem('search_count') || '0', 10);
-    if (count >= 5) {
-      alert("You've reached your free limit of 5 searches. Please upgrade.");
+    if (count >= 30) {
+      alert("You've reached your free limit of 30 searches. Please upgrade.");
       return;
     }
 
@@ -158,6 +161,19 @@ const SearchPage = () => {
       fetchResults(query, 0, true);
     }
   };
+
+  // Handle trending search click
+  const handleTrendingClick = (trendingQuery: string) => {
+    if (searchLimitReached) return;
+    
+    setQuery(trendingQuery);
+    const encodedQuery = encodeURIComponent(trendingQuery);
+    router.replace(`/search?q=${encodedQuery}`);
+    
+    setPage(0);
+    setHasMore(true);
+    fetchResults(trendingQuery, 0, true);
+  };
   
   const handleLoadMore = () => {
     const nextPage = page + 1;
@@ -173,7 +189,7 @@ const SearchPage = () => {
     <div className="min-h-screen bg-black text-white font-inter">
       <NavBar />
       <div className="pt-20 max-w-6xl mx-auto px-4">
-        <form onSubmit={handleSubmit} className="flex items-center justify-center mb-10 w-full">
+        <form onSubmit={handleSubmit} className="flex items-center justify-center mb-6 w-full">
           <div className="relative w-full max-w-2xl">
             <input
               type="text"
@@ -194,6 +210,23 @@ const SearchPage = () => {
             </button>
           </div>
         </form>
+
+        {/* Trending Searches Component */}
+        <div className="flex flex-col items-center mb-10">
+          <h3 className="text-sm font-medium text-zinc-400 mb-3">🔥 Trending Searches</h3>
+          <div className="flex flex-wrap justify-center gap-2 max-w-2xl">
+            {TRENDING_SEARCHES.map((trendingQuery) => (
+              <button
+                key={trendingQuery}
+                onClick={() => handleTrendingClick(trendingQuery)}
+                disabled={searchLimitReached}
+                className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white rounded-full text-sm transition-all duration-200 border border-zinc-700 hover:border-purple-500 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-md"
+              >
+                {trendingQuery}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {modalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">

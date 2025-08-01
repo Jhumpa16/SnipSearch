@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
     // === 1. Generate embedding ===
     const embeddingResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/generate-embedding`,
+      `${process.env.EMBEDDING_API_URL}`,    
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

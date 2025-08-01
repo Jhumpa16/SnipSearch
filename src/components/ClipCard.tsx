@@ -29,6 +29,9 @@ export default function ClipCard({ clip }: ClipCardProps) {
   const [showVideo, setShowVideo] = useState(false);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // State for share functionality
+  const [showCopiedTooltip, setShowCopiedTooltip] = useState(false);
+
   // Extract YouTube video ID from URL
   const extractVideoId = (url: string): string | null => {
     const patterns = [
@@ -72,6 +75,26 @@ export default function ClipCard({ clip }: ClipCardProps) {
     }
   };
 
+  // Handle share button click
+  const handleShareClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (!youtube_url) return;
+    
+    try {
+      await navigator.clipboard.writeText(youtube_url);
+      setShowCopiedTooltip(true);
+      
+      // Hide tooltip after 2 seconds
+      setTimeout(() => {
+        setShowCopiedTooltip(false);
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy link:', err);
+    }
+  };
+
   // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
@@ -89,7 +112,7 @@ export default function ClipCard({ clip }: ClipCardProps) {
 
   const cardContent = (
     <div
-      className="bg-zinc-900 rounded-xl shadow-lg overflow-hidden w-full max-w-xs sm:w-64 mx-auto flex flex-col hover:scale-105 hover:shadow-[0_0_16px_2px_rgba(168,85,247,0.3)] transition-all duration-200 cursor-pointer border border-zinc-800 hover:border-purple-500 font-inter min-h-[380px]"
+      className="bg-zinc-900 rounded-xl shadow-lg overflow-hidden w-full max-w-xs sm:w-64 mx-auto flex flex-col hover:scale-105 hover:shadow-[0_0_16px_2px_rgba(168,85,247,0.3)] transition-all duration-200 cursor-pointer border border-zinc-800 hover:border-purple-500 font-inter min-h-[380px] relative"
       style={{ minHeight: 380, height: 380 }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -143,6 +166,26 @@ export default function ClipCard({ clip }: ClipCardProps) {
             LIVE
           </div>
         )}
+
+        {/* Share Button */}
+        {youtube_url && (
+          <button
+            onClick={handleShareClick}
+            className="absolute top-2 left-2 bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all duration-200 hover:scale-110 z-10"
+            title="Copy link"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+            </svg>
+          </button>
+        )}
+
+        {/* Copied Tooltip */}
+        {showCopiedTooltip && (
+          <div className="absolute top-12 left-2 bg-green-600 text-white px-3 py-1 rounded-lg text-sm font-medium shadow-lg z-20 whitespace-nowrap">
+            ✔️ Link Copied!
+          </div>
+        )}
       </div>
       <div className="p-4 flex flex-col gap-2 flex-1">
         <h2 className="text-white text-base font-semibold line-clamp-2 min-h-[2.7em]">{title}</h2>
@@ -193,7 +236,6 @@ export default function ClipCard({ clip }: ClipCardProps) {
     cardContent
   );
 }
-
 
 
 

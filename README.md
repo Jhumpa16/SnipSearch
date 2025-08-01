@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🎬 SnipSearch Frontend
+This is the frontend for SnipSearch, a web application that helps editors, creators, and meme-lovers discover iconic movie, anime, and video clips through smart semantic search.
 
-## Getting Started
+Built with Next.js and styled with TailwindCSS, the app connects to a Supabase backend and uses local AI embeddings for fast, offline semantic search.
 
-First, run the development server:
+🚀 Getting Started
+Install dependencies
 
-```bash
+bash
+Copy
+Edit
+npm install
+# or
+yarn install
+Start development server
+
+bash
+Copy
+Edit
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000 to view it in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+⚙️ Project Structure
+php
+Copy
+Edit
+frontend/
+├── app/               # Next.js App Directory
+├── components/        # UI components (ClipCard, NavBar, etc.)
+├── lib/               # Helper utilities (e.g., Supabase client)
+├── public/            # Static assets
+├── styles/            # Global styles and Tailwind config
+└── .env.local         # Local environment variables (not committed)
+🧠 Tech Stack
+Framework: Next.js (App Router)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Styling: TailwindCSS
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Backend: Supabase (Postgres + Auth)
 
-## Learn More
+AI Embeddings: Local FastAPI server using sentence-transformers
 
-To learn more about Next.js, take a look at the following resources:
+Hosting: Vercel (optional)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📦 Environment Variables
+Create a .env.local file based on .env.example:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+ini
+Copy
+Edit
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+NEXT_PUBLIC_EMBEDDING_API=http://localhost:8000/embedding
+Do not commit .env* files.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📄 License
+This project is under the MIT License./nextjs.org/docs/app/building-your-application/deploying) for more details.

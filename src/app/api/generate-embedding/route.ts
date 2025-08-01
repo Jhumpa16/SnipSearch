@@ -9,7 +9,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
 
     // Send request to local FastAPI embedding server
-    const fastApiUrl = 'http://127.0.0.1:8000/embedding';
+    const fastApiUrl = process.env.EMBEDDING_API_URL!;
     let response;
     try {
       response = await fetch(fastApiUrl, {

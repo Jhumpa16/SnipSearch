@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
 import UserProfile from "./UserProfile";
 import SnipSearchLogo from "./SnipSearchLogo";
@@ -27,11 +27,11 @@ const NavBar: React.FC = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
       {/* Logo and brand name */}
-      <a href="/" className="select-none group">
+      <Link href="/" className="select-none group">
         <div className="flex items-center gap-2 h-10">
           <SnipSearchLogo />
         </div>
-      </a>
+      </Link>
 
       {/* Desktop Links */}
       <div className="hidden md:flex items-center gap-6">

@@ -136,7 +136,7 @@ const SearchPage = () => {
       }
 
       if (results.length < 12) setHasMore(false);
-    } catch (error: unknown) {
+    } catch {
       setError('Something went wrong. Please try again.');
     } finally {
       setLoading(false);
@@ -326,6 +326,5 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
-
 
 

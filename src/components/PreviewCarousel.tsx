@@ -50,11 +50,11 @@ export default function PreviewCarousel() {
           <Swiper
             modules={[Autoplay, EffectCoverflow, Navigation, Pagination]}
             effect="coverflow"
-            grabCursor
-            centeredSlides
+            grabCursor={true}
+            centeredSlides={true}
             slidesPerView={1}
             loop={false}
-            navigation
+            navigation={true}
             pagination={{ clickable: true }}
             coverflowEffect={{
               rotate: 0,

@@ -18,6 +18,7 @@ interface Clip {
   theme: string | null;
   score: number;
   similarity?: number;
+  timestamp?: number;
 }
 
 // Trending/Hot searches - hardcoded for now
@@ -326,5 +327,3 @@ const SearchPage = () => {
 };
 
 export default SearchPage;
-
-

@@ -262,7 +262,7 @@ const SearchPage = () => {
      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 pb-10 justify-items-center">
   {clips.map((clip, index) => (
     <ClipCard
-      key={`${clip.youtube_url}-${String(clip.timestamp ?? index)}`}
+    key={`${clip.youtube_url}-${'timestamp' in clip && clip.timestamp !== undefined ? clip.timestamp : index}`}
       clip={{
         ...clip,
         mood: clip.mood ?? undefined,

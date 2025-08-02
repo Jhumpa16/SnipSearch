@@ -29,7 +29,7 @@ const clips = [
   },
   {
     title: 'Interstellar',
-    subtitle: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.',
+    subtitle: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity&apos;s survival.',
     image: '/interstellar.jpg',
   },
 ]

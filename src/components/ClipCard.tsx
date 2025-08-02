@@ -22,7 +22,7 @@ interface ClipCardProps {
 }
 
 export default function ClipCard({ clip }: ClipCardProps) {
-  const { title, tags, thumbnail, mood, category, theme, score, similarity, description, subtitle, youtube_url } = clip;
+  const { title, tags, thumbnail, mood, category, theme, similarity, description, subtitle, youtube_url } = clip;
   
   // State for hover video functionality
   const [isHovered, setIsHovered] = useState(false);

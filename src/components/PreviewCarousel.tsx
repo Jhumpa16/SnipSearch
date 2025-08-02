@@ -4,6 +4,7 @@ import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import Image from 'next/image'
 
 const clips = [
   {
@@ -28,7 +29,7 @@ const clips = [
   },
   {
     title: 'Interstellar',
-    subtitle: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity’s survival.',
+    subtitle: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.',
     image: '/interstellar.jpg',
   },
 ]
@@ -74,10 +75,11 @@ export default function PreviewCarousel() {
             {clips.map((clip, i) => (
               <SwiperSlide key={i} className="flex items-center justify-center">
                 <div className="relative w-[320px] h-[180px] md:w-[420px] md:h-[236px] rounded-2xl overflow-hidden shadow-2xl group transition-transform duration-300 hover:scale-105 flex flex-col items-center justify-center mx-auto">
-                  <img
+                  <Image
                     src={clip.image}
                     alt={clip.title}
-                    className="object-cover w-full h-full"
+                    fill
+                    className="object-cover"
                   />
                   {/* Overlay for text */}
                   <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
@@ -97,4 +99,4 @@ export default function PreviewCarousel() {
       </div>
     </section>
   )
-} 
+}

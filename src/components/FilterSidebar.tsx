@@ -30,7 +30,7 @@ export default function FilterSidebar() {
     if (duration !== "5") params.set("duration", duration);
 
     router.push(`/search?${params.toString()}`);
-  }, [mood, genre, theme, category, duration]);
+  }, [mood, genre, theme, category, duration, router, searchParams]);
 
   return (
     <aside className="sticky top-16 left-0 w-full md:w-64 max-h-full overflow-auto bg-zinc-900 rounded-xl shadow-2xl px-6 py-8 flex flex-col gap-8 z-30 ml-4 mt-28">

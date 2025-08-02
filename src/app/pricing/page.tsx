@@ -40,7 +40,7 @@ export default function PricingPage() {
       <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-4 text-center">Choose Your Plan</h1>
       <p className="text-gray-400 mb-10 text-center max-w-xl">Unlock more searches and save your favorite clips. Simple, transparent pricing. No hidden fees.</p>
       <div className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8">
-        {plans.map((plan, idx) => (
+        {plans.map((plan) => (
           <div
             key={plan.name}
             className={`relative flex flex-col items-center bg-[#232946] rounded-2xl shadow-xl border border-gray-800 px-7 py-10 transition-transform duration-200 hover:scale-[1.025] ${
@@ -75,4 +75,4 @@ export default function PricingPage() {
       </div>
     </div>
   );
-} 
+}

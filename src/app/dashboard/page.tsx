@@ -21,11 +21,11 @@ export default function DashboardPage() {
                 Welcome to your SnipSearch Dashboard
               </h2>
               <p className="text-gray-600 mb-4">
-                This is a protected page that requires authentication. You can only see this content if you're logged in.
+                This is a protected page that requires authentication. You can only see this content if you&apos;re logged in.
               </p>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                 <p className="text-blue-800">
-                  ✅ You're successfully authenticated and have access to all SnipSearch features!
+                  ✅ You&apos;re successfully authenticated and have access to all SnipSearch features!
                 </p>
               </div>
             </div>
@@ -34,4 +34,4 @@ export default function DashboardPage() {
       </div>
     </ProtectedRoute>
   );
-} 
+}

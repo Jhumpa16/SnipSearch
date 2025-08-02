@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
     // === 1. Generate embedding ===
     const embeddingResponse = await fetch(
-      `${process.env.EMBEDDING_API_URL}`,    
+      `${process.env.EMBEDDING_API_URL}`,      
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
     }
 
     const embeddingData = await embeddingResponse.json();
-    const embedding: number[] = embeddingData.embedding?.map((x: any) =>
+    const embedding: number[] = embeddingData.embedding?.map((x: number) =>
       Number(x)
     );
 
@@ -97,10 +97,11 @@ export async function POST(req: Request) {
     const paginatedData = data?.slice(offset, offset + limit);
 
     return NextResponse.json({ data: paginatedData }, { status: 200 });
-  } catch (err: any) {
-    console.error("🚨 API error:", err.message || err);
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : "Internal server error";
+    console.error("🚨 API error:", errorMessage);
     return NextResponse.json(
-      { error: err.message || "Internal server error" },
+      { error: errorMessage },
       { status: 500 }
     );
   }

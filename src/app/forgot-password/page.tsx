@@ -1,12 +1,10 @@
 "use client";
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase-browser';
 import SnipSearchLogo from '@/components/SnipSearchLogo';
 
 export default function ForgotPasswordPage() {
-  const router = useRouter();
   const [email, setEmail] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -127,4 +125,4 @@ export default function ForgotPasswordPage() {
       </div>
     </div>
   );
-} 
+}

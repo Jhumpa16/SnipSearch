@@ -111,7 +111,7 @@ export default function AboutPage() {
                   Whether you want a reaction shot, an emotional moment, or a specific character vibe, SnipSearch uses semantic search to understand your intent and match it with relevant content.
                 </p>
                 
-                <h3 className="text-2xl font-semibold text-white mb-6">Features We're Proud Of:</h3>
+                <h3 className="text-2xl font-semibold text-white mb-6">Features We&apos;re Proud Of:</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
                     <h4 className="text-lg font-semibold text-white mb-3">🎯 Semantic Search Engine</h4>
@@ -127,7 +127,7 @@ export default function AboutPage() {
                   </div>
                   <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
                     <h4 className="text-lg font-semibold text-white mb-3">🔁 Instant Copy & Share Links</h4>
-                    <p className="text-gray-300">Get a clip's YouTube link in one click.</p>
+                    <p className="text-gray-300">Get a clip&apos;s YouTube link in one click.</p>
                   </div>
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-start gap-3 md:col-span-2">
                     <div className="w-2 h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-300">Anyone who's tired of keyword-based video scavenger hunts.</span>
+                    <span className="text-gray-300">Anyone who&apos;s tired of keyword-based video scavenger hunts.</span>
                   </div>
                 </div>
               </div>
@@ -186,7 +186,7 @@ export default function AboutPage() {
                   What started as a weekend experiment is now evolving into a full-fledged AI platform for creative search, discovery, and inspiration.
                 </p>
                 <p className="text-gray-300 leading-relaxed">
-                  We're a small, creator-led team — designers, coders, editors, and AI enthusiasts — building the future of content search.
+                  We&apos;re a small, creator-led team — designers, coders, editors, and AI enthusiasts — building the future of content search.
                 </p>
               </div>
             </motion.section>
@@ -195,4 +195,4 @@ export default function AboutPage() {
       </div>
     </div>
   );
-} 
+}

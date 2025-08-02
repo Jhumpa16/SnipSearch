@@ -36,13 +36,13 @@ const NavBar: React.FC = () => {
       {/* Desktop Links */}
       <div className="hidden md:flex items-center gap-6">
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.name}
             href={link.href}
             className="text-zinc-200 hover:text-indigo-400 transition-colors font-medium px-2"
           >
             {link.name}
-          </a>
+          </Link>
         ))}
         {user ? (
           <div className="flex items-center gap-4">
@@ -99,14 +99,14 @@ const NavBar: React.FC = () => {
               transition={{ duration: 0.25 }}
             >
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="text-zinc-200 hover:text-indigo-400 transition-colors font-medium py-1 px-2 rounded"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               {user ? (
                 <>

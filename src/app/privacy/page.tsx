@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Database, Eye, Share2, Lock, UserCheck, Baby } from 'lucide-react';
+import { Database, Eye, Share2, Lock, UserCheck, Baby } from 'lucide-react';
 
 export default function PrivacyPage() {
   const fadeInUp = {
@@ -211,7 +211,7 @@ export default function PrivacyPage() {
                 <div className="p-3 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl">
                   <Baby className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white">6. Children's Privacy</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white">6. Children&apos;s Privacy</h2>
               </div>
               <div className="prose prose-lg prose-invert max-w-none">
                 <div className="bg-gradient-to-r from-orange-500/10 to-yellow-500/10 rounded-xl p-6 border border-orange-500/20">
@@ -226,4 +226,4 @@ export default function PrivacyPage() {
       </div>
     </div>
   );
-} 
+}

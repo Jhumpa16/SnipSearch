@@ -95,7 +95,7 @@ const SearchPage = () => {
 
     let count = parseInt(localStorage.getItem('search_count') || '0', 10);
     if (count >= 30) {
-      alert("You've reached your free limit of 30 searches. Please upgrade.");
+      alert("You&apos;ve reached your free limit of 30 searches. Please upgrade.");
       return;
     }
 
@@ -136,7 +136,7 @@ const SearchPage = () => {
       }
 
       if (results.length < 12) setHasMore(false);
-    } catch (err: any) {
+    } catch (error: unknown) {
       setError('Something went wrong. Please try again.');
     } finally {
       setLoading(false);
@@ -231,7 +231,7 @@ const SearchPage = () => {
         {modalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
             <div className="bg-zinc-900 rounded-xl shadow-2xl p-8 max-w-sm w-full text-center border-2 border-purple-500">
-              <h2 className="text-2xl font-bold mb-4 text-white">You've reached your free limit</h2>
+              <h2 className="text-2xl font-bold mb-4 text-white">You&apos;ve reached your free limit</h2>
               <p className="text-zinc-300 mb-6">Sign up to continue using SnipSearch.</p>
               <button
                 onClick={handleSignUp}
@@ -297,7 +297,7 @@ const SearchPage = () => {
                 )}
               </>
             ) : (
-              <p className="text-zinc-300 text-center text-lg mt-12">No clips found for '{query}'. Try a different prompt.</p>
+              <p className="text-zinc-300 text-center text-lg mt-12">No clips found for &apos;{query}&apos;. Try a different prompt.</p>
             )}
           </div>
         )}

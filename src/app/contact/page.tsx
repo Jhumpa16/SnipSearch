@@ -46,7 +46,7 @@ export default function ContactPage() {
               className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-3xl mx-auto"
               {...fadeInUp}
             >
-              We'd love to hear from you. Whether you have a question, feedback, a bug to report, or a partnership idea — drop us a message.
+              We&apos;d love to hear from you. Whether you have a question, feedback, a bug to report, or a partnership idea — drop us a message.
             </motion.p>
           </div>
         </motion.div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
               </div>
               <div className="prose prose-lg prose-invert max-w-none">
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  We're currently setting up a dedicated support email. In the meantime, please reach out to:
+                  We&apos;re currently setting up a dedicated support email. In the meantime, please reach out to:
                 </p>
                 <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
                   <div className="flex items-center gap-3">
@@ -83,7 +83,7 @@ export default function ContactPage() {
                     </a>
                     <span className="text-sm text-gray-400">(placeholder)</span>
                   </div>
-                  <p className="text-gray-400 mt-2">We'll get back to you within 48 hours.</p>
+                  <p className="text-gray-400 mt-2">We&apos;ll get back to you within 48 hours.</p>
                 </div>
               </div>
             </motion.section>
@@ -98,7 +98,7 @@ export default function ContactPage() {
               </div>
               <div className="prose prose-lg prose-invert max-w-none">
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  We're actively looking to collaborate with content studios, editing tools, and AI creators. If you want to integrate with SnipSearch or bring our clip discovery to your product, let's talk.
+                  We&apos;re actively looking to collaborate with content studios, editing tools, and AI creators. If you want to integrate with SnipSearch or bring our clip discovery to your product, let&apos;s talk.
                 </p>
                 <div className="bg-gradient-to-r from-green-500/10 to-blue-500/10 rounded-xl p-6 border border-green-500/20">
                   <h3 className="text-xl font-semibold text-white mb-4">Partnership Opportunities:</h3>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                 <div className="p-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl">
                   <MapPin className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white">Where We're Based</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white">Where We&apos;re Based</h2>
               </div>
               <div className="prose prose-lg prose-invert max-w-none">
                 <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-700">
@@ -187,4 +187,4 @@ export default function ContactPage() {
       </div>
     </div>
   );
-} 
+}

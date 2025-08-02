@@ -2,10 +2,7 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import { motion } from "framer-motion";
-import FilterSidebar from "../components/FilterSidebar";
-import ClipCard from "../components/ClipCard";
 import Footer from "../components/Footer";
-import { Search } from "lucide-react";
 import CountUp from 'react-countup';
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
@@ -113,12 +110,12 @@ export default function Home() {
               </radialGradient>
             </defs>
             {/* Vertical lines */}
-            {Array.from({ length: 25 }).map((_, i) => (
-              <line key={i} x1={i * 48} y1="0" x2={i * 48} y2="600" stroke="url(#grid-fade-why)" strokeWidth="1" />
+            {Array.from({ length: 25 }).map((_, index) => (
+              <line key={index} x1={index * 48} y1="0" x2={index * 48} y2="600" stroke="url(#grid-fade-why)" strokeWidth="1" />
             ))}
             {/* Horizontal lines */}
-            {Array.from({ length: 13 }).map((_, i) => (
-              <line key={i} y1={i * 48} x1="0" y2={i * 48} x2="1200" stroke="url(#grid-fade-why)" strokeWidth="1" />
+            {Array.from({ length: 13 }).map((_, index) => (
+              <line key={index} y1={index * 48} x1="0" y2={index * 48} x2="1200" stroke="url(#grid-fade-why)" strokeWidth="1" />
             ))}
           </svg>
         </div>
@@ -166,13 +163,13 @@ export default function Home() {
                 title: "Clip-Ready Output",
                 desc: "Get direct links to clips you can use. No trimming, no fuss—just drop and edit."
               },
-            ].map((card, i) => (
+            ].map((card, index) => (
               <motion.div
                 key={card.title}
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.12 }}
+                transition={{ duration: 0.6, delay: index * 0.12 }}
                 className="rounded-2xl bg-[#111827] p-6 shadow-md flex flex-col items-center text-center border border-[1.5px] border-transparent [mask-image:linear-gradient(white,white)] relative"
                 style={{
                   borderImage: 'linear-gradient(90deg, #f472b6, #22d3ee) 1',
@@ -206,7 +203,7 @@ export default function Home() {
               },
               {
                 q: "Can I download the clips?",
-                a: "We only provide links to clips hosted on YouTube. Downloading must comply with YouTube’s policies and copyright laws."
+                a: "We only provide links to clips hosted on YouTube. Downloading must comply with YouTube's policies and copyright laws."
               },
               {
                 q: "Is SnipSearch free?",
@@ -216,13 +213,13 @@ export default function Home() {
                 q: "Who is SnipSearch for?",
                 a: "Creators, editors, meme-makers, or anyone who wants that *perfect* clip to express a moment."
               },
-            ].map((faq, i) => (
+            ].map((faq, index) => (
               <motion.details
-                key={i}
+                key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-zinc-900/90 rounded-xl p-5 border border-zinc-800 shadow-lg group"
               >
                 <summary className="font-semibold cursor-pointer text-lg text-cyan-400 group-open:text-pink-400 transition-colors">
@@ -251,7 +248,7 @@ export default function Home() {
               { label: "Thanos snap scene", href: "/search?q=Thanos+snap+scene" },
               { label: "Sad anime breakup", href: "/search?q=Sad+anime+breakup" },
               { label: "Iconic Bollywood villain laugh", href: "/search?q=Iconic+Bollywood+villain+laugh" },
-            ].map((chip, i) => (
+            ].map((chip) => (
               <a
                 key={chip.label}
                 href={chip.href}
@@ -288,7 +285,7 @@ function VideoCarouselSection() {
       isGif: true,
     },
     {
-      title: "Joker’s laugh",
+      title: "Joker's laugh",
       video: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaGtsYWZ6anRwc2doN284cGEzdG9lZWZzM2hoYjBiNGJ2bmFpdHJxcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zIwAuqRp2Ki7S/giphy.gif",
       tags: ["Drama", "Villain", "Iconic"],
       isYouTube: false,
@@ -322,11 +319,11 @@ function VideoCarouselSection() {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [current, paused]);
+  }, [current, paused, clips.length]);
 
   const goTo = (idx: number) => setCurrent(idx);
-  const prev = () => setCurrent((prev) => (prev - 1 + clips.length) % clips.length);
-  const next = () => setCurrent((prev) => (prev + 1) % clips.length);
+  const prev = () => setCurrent((prevValue) => (prevValue - 1 + clips.length) % clips.length);
+  const next = () => setCurrent((prevValue) => (prevValue + 1) % clips.length);
 
   return (
     <section className="relative w-full py-20 px-4 md:px-0 bg-gradient-to-br from-[#0f1123] via-[#1a1440] to-[#2d0b3a] overflow-hidden">
@@ -412,8 +409,8 @@ function VideoCarouselSection() {
                   {clips[current].title}
                 </div>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {clips[current].tags.map((tag, j) => (
-                    <span key={j} className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-cyan-400 to-pink-400 text-white/90 font-medium shadow">
+                  {clips[current].tags.map((tag, tagIndex) => (
+                    <span key={tagIndex} className="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-cyan-400 to-pink-400 text-white/90 font-medium shadow">
                       {tag}
                     </span>
                   ))}

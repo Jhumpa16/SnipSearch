@@ -15,6 +15,7 @@ type Clip = {
   description?: string;
   subtitle?: string;
   youtube_url?: string;
+  timestamp?: number;
 };
 
 interface ClipCardProps {

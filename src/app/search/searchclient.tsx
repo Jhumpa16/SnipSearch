@@ -299,24 +299,6 @@ const SearchClient = () => {
         </div>
       )}
 
-      <style jsx global>{`
-        .animate-fade-in {
-          animation: fadeIn 0.5s;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        body, html {
-          font-family: 'Inter', 'DM Sans', sans-serif;
-        }
-      `}</style>
     </div>
   );
 };
